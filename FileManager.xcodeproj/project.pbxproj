@@ -14,6 +14,10 @@
 		63D78C8829561387006AED87 /* FileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D78C8729561387006AED87 /* FileManagerTests.swift */; };
 		63D78C9229561387006AED87 /* FileManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D78C9129561387006AED87 /* FileManagerUITests.swift */; };
 		63D78C9429561387006AED87 /* FileManagerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D78C9329561387006AED87 /* FileManagerUITestsLaunchTests.swift */; };
+		63D78CA2295613ED006AED87 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 63D78CA1295613ED006AED87 /* ComposableArchitecture */; };
+		63D78CA4295613ED006AED87 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 63D78CA3295613ED006AED87 /* Dependencies */; };
+		63D78CA729561434006AED87 /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = 63D78CA629561434006AED87 /* SwiftTerm */; };
+		63D78CA9295614C1006AED87 /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D78CA8295614C1006AED87 /* TermView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,7 @@
 		63D78C8D29561387006AED87 /* FileManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FileManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63D78C9129561387006AED87 /* FileManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerUITests.swift; sourceTree = "<group>"; };
 		63D78C9329561387006AED87 /* FileManagerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		63D78CA8295614C1006AED87 /* TermView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +57,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63D78CA2295613ED006AED87 /* ComposableArchitecture in Frameworks */,
+				63D78CA4295613ED006AED87 /* Dependencies in Frameworks */,
+				63D78CA729561434006AED87 /* SwiftTerm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +108,7 @@
 				63D78C7929561387006AED87 /* Assets.xcassets */,
 				63D78C7E29561387006AED87 /* FileManager.entitlements */,
 				63D78C7B29561387006AED87 /* Preview Content */,
+				63D78CA8295614C1006AED87 /* TermView.swift */,
 			);
 			path = FileManager;
 			sourceTree = "<group>";
@@ -145,6 +154,11 @@
 			dependencies = (
 			);
 			name = FileManager;
+			packageProductDependencies = (
+				63D78CA1295613ED006AED87 /* ComposableArchitecture */,
+				63D78CA3295613ED006AED87 /* Dependencies */,
+				63D78CA629561434006AED87 /* SwiftTerm */,
+			);
 			productName = FileManager;
 			productReference = 63D78C7229561386006AED87 /* FileManager.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +231,10 @@
 				Base,
 			);
 			mainGroup = 63D78C6929561386006AED87;
+			packageReferences = (
+				63D78CA0295613ED006AED87 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				63D78CA529561434006AED87 /* XCRemoteSwiftPackageReference "SwiftTerm" */,
+			);
 			productRefGroup = 63D78C7329561386006AED87 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63D78C7829561386006AED87 /* ContentView.swift in Sources */,
+				63D78CA9295614C1006AED87 /* TermView.swift in Sources */,
 				63D78C7629561386006AED87 /* FileManagerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -576,6 +595,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		63D78CA0295613ED006AED87 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+		63D78CA529561434006AED87 /* XCRemoteSwiftPackageReference "SwiftTerm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/migueldeicaza/SwiftTerm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		63D78CA1295613ED006AED87 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63D78CA0295613ED006AED87 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		63D78CA3295613ED006AED87 /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63D78CA0295613ED006AED87 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = Dependencies;
+		};
+		63D78CA629561434006AED87 /* SwiftTerm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63D78CA529561434006AED87 /* XCRemoteSwiftPackageReference "SwiftTerm" */;
+			productName = SwiftTerm;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 63D78C6A29561386006AED87 /* Project object */;
 }
