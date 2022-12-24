@@ -9,9 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TermView()
-            .padding(4)
-            .background(Color.black)
+        GeometryReader { geo in
+            VSplitView {
+                FinderView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                TermView()
+                    .padding(4)
+                    .background(Color.black)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+            .frame(width: geo.size.width, height: geo.size.height)
+        }
     }
 }
 
