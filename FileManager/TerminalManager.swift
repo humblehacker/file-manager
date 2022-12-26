@@ -10,18 +10,43 @@ import Foundation
 import SwiftTerm
 
 class TerminalManager: ObservableObject {
+
+    @Published var currentDirectory: URL = URL(string: FileManager.default.currentDirectoryPath)!
+
+    var cancellable: AnyCancellable? = nil
+
     lazy var terminal = {
         let term = LocalProcessTerminalView(frame: .zero)
+        term.processDelegate = self
 
         let env = ProcessInfo.processInfo.environment
         let shell = env["SHELL"] ?? "/bin/zsh"
 
-        FileManager.default.changeCurrentDirectoryPath(FileManager.default.homeDirectoryForCurrentUser.path)
+        let homeDirectory = FileManager.default.homeDirectoryForCurrentUser
+        currentDirectory = homeDirectory
+        FileManager.default.changeCurrentDirectoryPath(homeDirectory.path)
 
         let vars = Terminal.getEnvironmentVariables(termName: "xterm-color", trueColor: false, additionalVarsToCopy: ["SHELL"]).toVars()
         term.startProcess(executable: "\(shell)", args: [], environment: vars, execName: "-\(shell)")
+
         return term
     }()
+}
+
+extension TerminalManager: LocalProcessTerminalViewDelegate {
+    public func sizeChanged(source: SwiftTerm.LocalProcessTerminalView, newCols: Int, newRows: Int) {
+    }
+
+    public func setTerminalTitle(source: SwiftTerm.LocalProcessTerminalView, title: String) {
+    }
+
+    public func hostCurrentDirectoryUpdate(source: SwiftTerm.TerminalView, directory: String?) {
+        guard let directory else { return }
+        currentDirectory = URL(string: directory)!
+    }
+
+    public func processTerminated(source: SwiftTerm.TerminalView, exitCode: Int32?) {
+    }
 }
 
 extension Terminal {

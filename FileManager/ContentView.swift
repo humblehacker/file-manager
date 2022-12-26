@@ -16,7 +16,6 @@ enum Position {
 
 struct ContentView: View {
     @State var primaryPosition: Position = .top
-    @EnvironmentObject var terminalManager: TerminalManager
     var body: some View {
         SplitView(primaryPosition: primaryPosition,
             primaryContent: {
