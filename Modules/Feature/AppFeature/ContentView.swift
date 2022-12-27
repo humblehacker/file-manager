@@ -109,6 +109,5 @@ struct SplitView<Content1, Content2>: View where Content1: View, Content2: View 
              )
          }
          .previewLayout(.sizeThatFits)
-         .environmentObject(TerminalManager())
      }
  }

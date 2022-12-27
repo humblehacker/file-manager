@@ -11,7 +11,7 @@ import SwiftTerm
 import SwiftUI
 
 public struct TermView: NSViewRepresentable {
-    @EnvironmentObject var terminalManager: TerminalManager
+    @Dependency(\.terminalManager) var terminalManager: TerminalManager
     var store: StoreOf<TerminalFeature>
 
     public init(store: StoreOf<TerminalFeature>) {
@@ -35,7 +35,6 @@ struct TermView_Previews: PreviewProvider {
                 reducer: TerminalFeature()
             )
         )
-        .environmentObject(TerminalManager())
     }
 }
 

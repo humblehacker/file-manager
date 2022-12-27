@@ -10,17 +10,14 @@ import ComposableArchitecture
 import Foundation
 import SwiftTerm
 
-public class TerminalHolder {
-    let store: StoreOf<TerminalFeature>
-    let viewStore: ViewStoreOf<TerminalFeature>
-    var terminal: LocalProcessTerminalView
-    let tag: ObjectIdentifier
+private enum TerminalManagerKey: DependencyKey {
+    @MainActor static let liveValue = TerminalManager()
+}
 
-    public init(store: StoreOf<TerminalFeature>, terminal: LocalProcessTerminalView) {
-        self.store = store
-        self.viewStore = ViewStore(store)
-        self.terminal = terminal
-        self.tag = ObjectIdentifier(terminal)
+extension DependencyValues {
+    var terminalManager: TerminalManager {
+        get { self[TerminalManagerKey.self] }
+        set { self[TerminalManagerKey.self] = newValue }
     }
 }
 

@@ -8,7 +8,6 @@
 import AppFeature
 import ComposableArchitecture
 import SwiftUI
-import TerminalFeature
 
 @main
 struct FileManagerApp: App {
@@ -19,7 +18,6 @@ struct FileManagerApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView(store: store)
-                .environmentObject(TerminalManager())
         }
     }
 }
