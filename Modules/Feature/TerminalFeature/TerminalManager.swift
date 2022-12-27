@@ -6,31 +6,63 @@
 //
 
 import Combine
+import ComposableArchitecture
 import Foundation
 import SwiftTerm
 
-class TerminalManager: ObservableObject {
+public class TerminalHolder {
+    let store: StoreOf<TerminalFeature>
+    let viewStore: ViewStoreOf<TerminalFeature>
+    var terminal: LocalProcessTerminalView
+    let tag: ObjectIdentifier
 
-    @Published var currentDirectory: URL = URL(string: FileManager.default.currentDirectoryPath)!
+    public init(store: StoreOf<TerminalFeature>, terminal: LocalProcessTerminalView) {
+        self.store = store
+        self.viewStore = ViewStore(store)
+        self.terminal = terminal
+        self.tag = ObjectIdentifier(terminal)
+    }
+}
 
-    var cancellable: AnyCancellable? = nil
+@MainActor
+public class TerminalManager: ObservableObject {
+    var cancellables: Set<AnyCancellable> = []
+    var terminalsByUUID: [UUID: TerminalHolder] = [:]
+    var uuidsByTag: [ObjectIdentifier: UUID] = [:]
+    var nextTag: Int = 0
 
-    lazy var terminal = {
+    public init() {}
+
+    func terminal(for uuid: UUID, store: StoreOf<TerminalFeature>) -> LocalProcessTerminalView {
+        if let holder = terminalsByUUID[uuid] {
+            return holder.terminal
+        }
+
         let term = LocalProcessTerminalView(frame: .zero)
         term.processDelegate = self
 
         let env = ProcessInfo.processInfo.environment
         let shell = env["SHELL"] ?? "/bin/zsh"
 
+        let holder = TerminalHolder(store: store, terminal: term)
+        terminalsByUUID[uuid] = holder
+        uuidsByTag[holder.tag] = uuid
+
         let homeDirectory = FileManager.default.homeDirectoryForCurrentUser
-        currentDirectory = homeDirectory
+        holder.viewStore.send(.currentDirectoryChanged(homeDirectory))
         FileManager.default.changeCurrentDirectoryPath(homeDirectory.path)
 
         let vars = Terminal.getEnvironmentVariables(termName: "xterm-color", trueColor: false, additionalVarsToCopy: ["SHELL"]).toVars()
         term.startProcess(executable: "\(shell)", args: [], environment: vars, execName: "-\(shell)")
 
         return term
-    }()
+    }
+
+    func viewStoreFromTerminal(terminal: SwiftTerm.TerminalView) -> ViewStoreOf<TerminalFeature>? {
+        let tag = ObjectIdentifier(terminal)
+        guard let uuid = uuidsByTag[tag], let holder = terminalsByUUID[uuid] else { return nil }
+        return holder.viewStore
+    }
 }
 
 extension TerminalManager: LocalProcessTerminalViewDelegate {
@@ -41,8 +73,11 @@ extension TerminalManager: LocalProcessTerminalViewDelegate {
     }
 
     public func hostCurrentDirectoryUpdate(source: SwiftTerm.TerminalView, directory: String?) {
-        guard let directory else { return }
-        currentDirectory = URL(string: directory)!
+        guard
+            let directory,
+            let viewStore = viewStoreFromTerminal(terminal: source)
+        else { return }
+        viewStore.send(.currentDirectoryChanged(URL(string: directory)!))
     }
 
     public func processTerminated(source: SwiftTerm.TerminalView, exitCode: Int32?) {

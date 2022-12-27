@@ -7,20 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5AF0E2E4B8C2EB60243798D6 /* FinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0E3EC30C8971B0032983E /* FinderView.swift */; };
-		5AF0E420A2BF04C468C9773A /* TerminalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0E38DA1DF8B9F0DA3F86F /* TerminalManager.swift */; };
-		5AF0E83C57BE30B9DBCDEFB5 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0E3BAC345164D6CC1A114 /* README.md */; };
+		6378A8C1295A22F90049AF5B /* AppFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 6378A8C0295A22F90049AF5B /* AppFeature */; };
 		63D78C7629561386006AED87 /* FileManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D78C7529561386006AED87 /* FileManagerApp.swift */; };
-		63D78C7829561386006AED87 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D78C7729561386006AED87 /* ContentView.swift */; };
 		63D78C7A29561387006AED87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63D78C7929561387006AED87 /* Assets.xcassets */; };
 		63D78C7D29561387006AED87 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63D78C7C29561387006AED87 /* Preview Assets.xcassets */; };
 		63D78C8829561387006AED87 /* FileManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D78C8729561387006AED87 /* FileManagerTests.swift */; };
 		63D78C9229561387006AED87 /* FileManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D78C9129561387006AED87 /* FileManagerUITests.swift */; };
 		63D78C9429561387006AED87 /* FileManagerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D78C9329561387006AED87 /* FileManagerUITestsLaunchTests.swift */; };
-		63D78CA2295613ED006AED87 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 63D78CA1295613ED006AED87 /* ComposableArchitecture */; };
-		63D78CA4295613ED006AED87 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 63D78CA3295613ED006AED87 /* Dependencies */; };
-		63D78CA729561434006AED87 /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = 63D78CA629561434006AED87 /* SwiftTerm */; };
-		63D78CA9295614C1006AED87 /* TermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D78CA8295614C1006AED87 /* TermView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,12 +34,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5AF0E38DA1DF8B9F0DA3F86F /* TerminalManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalManager.swift; sourceTree = "<group>"; };
 		5AF0E3BAC345164D6CC1A114 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		5AF0E3EC30C8971B0032983E /* FinderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinderView.swift; sourceTree = "<group>"; };
+		6378A8BC295A12400049AF5B /* Modules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Modules; sourceTree = "<group>"; };
 		63D78C7229561386006AED87 /* FileManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63D78C7529561386006AED87 /* FileManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerApp.swift; sourceTree = "<group>"; };
-		63D78C7729561386006AED87 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		63D78C7929561387006AED87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63D78C7C29561387006AED87 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		63D78C7E29561387006AED87 /* FileManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FileManager.entitlements; sourceTree = "<group>"; };
@@ -55,7 +46,6 @@
 		63D78C8D29561387006AED87 /* FileManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FileManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63D78C9129561387006AED87 /* FileManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerUITests.swift; sourceTree = "<group>"; };
 		63D78C9329561387006AED87 /* FileManagerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		63D78CA8295614C1006AED87 /* TermView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63D78CA2295613ED006AED87 /* ComposableArchitecture in Frameworks */,
-				63D78CA4295613ED006AED87 /* Dependencies in Frameworks */,
-				63D78CA729561434006AED87 /* SwiftTerm in Frameworks */,
+				6378A8C1295A22F90049AF5B /* AppFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,14 +74,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6378A8BD295A1A240049AF5B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		63D78C6929561386006AED87 = {
 			isa = PBXGroup;
 			children = (
+				6378A8BC295A12400049AF5B /* Modules */,
 				63D78C7429561386006AED87 /* FileManager */,
 				63D78C8629561387006AED87 /* FileManagerTests */,
 				63D78C9029561387006AED87 /* FileManagerUITests */,
 				63D78C7329561386006AED87 /* Products */,
 				5AF0E3BAC345164D6CC1A114 /* README.md */,
+				6378A8BD295A1A240049AF5B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,13 +108,9 @@
 			isa = PBXGroup;
 			children = (
 				63D78C7529561386006AED87 /* FileManagerApp.swift */,
-				63D78C7729561386006AED87 /* ContentView.swift */,
 				63D78C7929561387006AED87 /* Assets.xcassets */,
 				63D78C7E29561387006AED87 /* FileManager.entitlements */,
 				63D78C7B29561387006AED87 /* Preview Content */,
-				63D78CA8295614C1006AED87 /* TermView.swift */,
-				5AF0E3EC30C8971B0032983E /* FinderView.swift */,
-				5AF0E38DA1DF8B9F0DA3F86F /* TerminalManager.swift */,
 			);
 			path = FileManager;
 			sourceTree = "<group>";
@@ -164,9 +157,7 @@
 			);
 			name = FileManager;
 			packageProductDependencies = (
-				63D78CA1295613ED006AED87 /* ComposableArchitecture */,
-				63D78CA3295613ED006AED87 /* Dependencies */,
-				63D78CA629561434006AED87 /* SwiftTerm */,
+				6378A8C0295A22F90049AF5B /* AppFeature */,
 			);
 			productName = FileManager;
 			productReference = 63D78C7229561386006AED87 /* FileManager.app */;
@@ -241,8 +232,6 @@
 			);
 			mainGroup = 63D78C6929561386006AED87;
 			packageReferences = (
-				63D78CA0295613ED006AED87 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
-				63D78CA529561434006AED87 /* XCRemoteSwiftPackageReference "SwiftTerm" */,
 			);
 			productRefGroup = 63D78C7329561386006AED87 /* Products */;
 			projectDirPath = "";
@@ -286,12 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63D78C7829561386006AED87 /* ContentView.swift in Sources */,
-				63D78CA9295614C1006AED87 /* TermView.swift in Sources */,
 				63D78C7629561386006AED87 /* FileManagerApp.swift in Sources */,
-				5AF0E2E4B8C2EB60243798D6 /* FinderView.swift in Sources */,
-				5AF0E420A2BF04C468C9773A /* TerminalManager.swift in Sources */,
-				5AF0E83C57BE30B9DBCDEFB5 /* README.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,40 +592,10 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		63D78CA0295613ED006AED87 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.0;
-			};
-		};
-		63D78CA529561434006AED87 /* XCRemoteSwiftPackageReference "SwiftTerm" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/migueldeicaza/SwiftTerm";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		63D78CA1295613ED006AED87 /* ComposableArchitecture */ = {
+		6378A8C0295A22F90049AF5B /* AppFeature */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 63D78CA0295613ED006AED87 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
-		63D78CA3295613ED006AED87 /* Dependencies */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 63D78CA0295613ED006AED87 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = Dependencies;
-		};
-		63D78CA629561434006AED87 /* SwiftTerm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 63D78CA529561434006AED87 /* XCRemoteSwiftPackageReference "SwiftTerm" */;
-			productName = SwiftTerm;
+			productName = AppFeature;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
